@@ -1,4 +1,4 @@
-﻿namespace Brightgrove.BasketGame
+﻿namespace Brightgrove.BasketGame.Game
 {
     public static class Constants
     {

@@ -1,0 +1,6 @@
+﻿<GameConfig>
+  <Players>
+    <PlayerConfig Name="Random" Type="Random" />
+    <PlayerConfig Name="ThoroughCheater" Type="ThoroughCheater" />
+  </Players>
+</GameConfig>

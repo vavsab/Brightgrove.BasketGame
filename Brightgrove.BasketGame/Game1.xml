@@ -1,0 +1,9 @@
+﻿<GameConfig>
+  <Players>
+    <PlayerConfig Name="Memory" Type="Memory" />
+    <PlayerConfig Name="Cheater" Type="Cheater" />
+    <PlayerConfig Name="Thorough" Type="Thorough" />
+    <PlayerConfig Name="Random" Type="Random" />
+    <PlayerConfig Name="ThoroughCheater" Type="ThoroughCheater" />
+  </Players>
+</GameConfig>

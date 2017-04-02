@@ -7,7 +7,7 @@ namespace Brightgrove.BasketGame.History
     {
         private List<HistoryItem> items = new List<HistoryItem>();
 
-        public IEnumerable<HistoryItem> Items { get; }
+        public IEnumerable<HistoryItem> Items => items;
 
         public int Length => items.Count;
 

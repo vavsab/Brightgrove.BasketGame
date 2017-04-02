@@ -43,10 +43,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Game\Basket.cs" />
+    <Compile Include="Game\Config\PlayerConfig.cs" />
     <Compile Include="Game\Constants.cs" />
     <Compile Include="Game\Game.cs" />
+    <Compile Include="Game\Config\GameConfig.cs" />
     <Compile Include="Game\GameHelper.cs" />
-    <Compile Include="Game\GameState.cs" />
     <Compile Include="History\History.cs" />
     <Compile Include="History\HistoryHelper.cs" />
     <Compile Include="History\HistoryItem.cs" />
@@ -65,6 +66,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <Content Include="Game2.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Game1.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

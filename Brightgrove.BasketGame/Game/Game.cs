@@ -19,8 +19,6 @@ namespace Brightgrove.BasketGame.Game
 
         private CancellationTokenSource cancellationTokenSource;
 
-        public GameState State { get; set; } = GameState.NotStarted;
-
         public void RegisterPlayer(string name, PlayerType type)
         {
             Player player;
@@ -62,14 +60,18 @@ namespace Brightgrove.BasketGame.Game
 
             tasks.Add(Task.Run(() => StopGameWhenTimeIsOut(cancellationTokenSource), cancellationTokenSource.Token));
 
-            State = GameState.Running;
-
             try
             {
                 Task.WaitAll(tasks.ToArray());
-            } catch (AggregateException) {}
-            
-            State = GameState.Finished;
+            }
+            catch (Exception e) when ((e.InnerException is TaskCanceledException))
+            {
+                // ingore
+            }
+            catch (Exception e)
+            {
+                Console.Error.WriteLine($"Exception happened: " + e.ToString());
+            }
         }
 
         private void ProcessPlayer(Player player, CancellationTokenSource cancellationTokenSource)
@@ -99,7 +101,7 @@ namespace Brightgrove.BasketGame.Game
 
                     if (history.Length >= Constants.MaxGameAttemptsAmount)
                     {
-                        Console.WriteLine($"Max attempts amount '{Constants.MaxGameAttemptsAmount}' has been exceeded.");
+                        Console.WriteLine($"Max attempts amount of {Constants.MaxGameAttemptsAmount} has been exceeded.");
                         cancellationTokenSource.Cancel();
                         return;
                     }
